@@ -1,0 +1,31 @@
+# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
+[Bb]in/
+[Oo]bj/
+
+.sonar
+Thumbs.db
+node.exe
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+*.sln.cache
+*.sln.DotSettings.user
+
+# ReSharper is a .NET coding add-in
+_ReSharper*
+
+#package folder
+packages/**/
+
+
+# system hidden file
+*.DS_Store
+
+
+.idea/
+
+# logs
+[Ll]ogs
+
