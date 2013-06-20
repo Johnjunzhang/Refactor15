@@ -1,5 +1,5 @@
 ﻿using System;
-using Refactor.Utils;
+using Refactor.Common;
 using Xunit;
 
 namespace Refactor.test

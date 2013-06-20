@@ -1,4 +1,4 @@
-namespace Refactor.Utils
+namespace Refactor.Common
 {
     public class Dollars
     {

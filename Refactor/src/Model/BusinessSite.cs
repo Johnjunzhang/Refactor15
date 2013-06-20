@@ -1,5 +1,5 @@
 using System;
-using Refactor.Utils;
+using Refactor.Common;
 
 namespace Refactor.Model
 {
@@ -10,7 +10,7 @@ namespace Refactor.Model
         private static double END_RATE = 0.05;
         private static int END_AMOUNT = 1000;
 
-        public void addReading(Reading newReading)
+        public void AddReading(Reading newReading)
         {
             readings[++lastReading] = newReading;
         }

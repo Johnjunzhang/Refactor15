@@ -1,5 +1,5 @@
 using System;
-using Refactor.Utils;
+using Refactor.Common;
 
 namespace Refactor.Model
 {
@@ -8,7 +8,7 @@ namespace Refactor.Model
         private Reading[] readings = new Reading[1000];
         private static readonly double TAX_RATE = 0.05;
 
-        public void addReading(Reading newReading)
+        public void AddReading(Reading newReading)
         {
             Reading[] newArray = new Reading[readings.Length + 1];
             Array.Copy(readings, 0, newArray, 1, readings.Length);

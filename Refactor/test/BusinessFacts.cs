@@ -5,13 +5,13 @@ using Xunit;
 
 namespace Refactor.test
 {
-    public class LifelineFacts
+    public class BusinessFacts
     {
-        private LifelineSite subject;
+        private BusinessSite subject;
 
         public void SetUp()
         {
-            subject = new LifelineSite();
+            subject = new BusinessSite();
         }
 
         [Fact]
@@ -29,7 +29,7 @@ namespace Refactor.test
             SetUp();
             subject.AddReading(new Reading(10, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(110, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(4.84), subject.Charge());
+            Assert.Equal(new Dollars(7.26), subject.Charge());
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace Refactor.test
             SetUp();
             subject.AddReading(new Reading(100, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(199, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(4.79), subject.Charge());
+            Assert.Equal(new Dollars(7.19), subject.Charge());
         }
 
         [Fact]
@@ -47,7 +47,7 @@ namespace Refactor.test
             SetUp();
             subject.AddReading(new Reading(1000, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(1101, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(4.91), subject.Charge());
+            Assert.Equal(new Dollars(7.33), subject.Charge());
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace Refactor.test
             SetUp();
             subject.AddReading(new Reading(10000, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(10199, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(11.61), subject.Charge());
+            Assert.Equal(new Dollars(14.41), subject.Charge());
         }
 
         [Fact]
@@ -65,7 +65,7 @@ namespace Refactor.test
             SetUp();
             subject.AddReading(new Reading(0, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(200, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(11.68), subject.Charge());
+            Assert.Equal(new Dollars(14.48), subject.Charge());
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace Refactor.test
             SetUp();
             subject.AddReading(new Reading(50, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(251, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(11.77), subject.Charge());
+            Assert.Equal(new Dollars(14.55), subject.Charge());
         }
 
         [Fact]
@@ -83,7 +83,7 @@ namespace Refactor.test
             SetUp();
             subject.AddReading(new Reading(0, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(int.MaxValue, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(1.9730005337E8), subject.Charge());
+            Assert.Equal(new Dollars(1.5220290473E8), subject.Charge());
         }
 
         [Fact]

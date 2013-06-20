@@ -43,15 +43,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\Common\Zone.cs" />
     <Compile Include="src\Model\BusinessSite.cs" />
     <Compile Include="src\Model\DisabilitySite.cs" />
     <Compile Include="src\Model\LifelineSite.cs" />
-    <Compile Include="src\Model\Reading.cs" />
     <Compile Include="src\Model\ResidentialSite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Utils\DateTimeExten.cs" />
-    <Compile Include="src\Utils\Dollars.cs" />
-    <Compile Include="src\Zone.cs" />
+    <Compile Include="src\Common\DateTimeExten.cs" />
+    <Compile Include="src\Common\Dollars.cs" />
+    <Compile Include="src\Common\Reading.cs" />
+    <Compile Include="test\BusinessFacts.cs" />
+    <Compile Include="test\ResidentialFacts.cs" />
+    <Compile Include="test\DisabilityFacts.cs" />
     <Compile Include="test\DateTimeFacts.cs" />
     <Compile Include="test\LifelineFacts.cs" />
   </ItemGroup>

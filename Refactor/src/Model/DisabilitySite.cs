@@ -1,5 +1,5 @@
 using System;
-using Refactor.Utils;
+using Refactor.Common;
 
 namespace Refactor.Model
 {
@@ -10,6 +10,11 @@ namespace Refactor.Model
         private static readonly double TAX_RATE = 0.05;
         private Zone zone;
         private static readonly int CAP = 200;
+
+        public DisabilitySite(Zone zone)
+        {
+            this.zone=zone;
+        }
 
 
         public void AddReading(Reading newReading)
