@@ -20,7 +20,7 @@ namespace Refactor.Model
             this.date = date;
         }
 
-        private DateTime date;
-        private int amount;
+        private readonly DateTime date;
+        private readonly int amount;
     }
 }

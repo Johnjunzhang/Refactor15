@@ -30,7 +30,7 @@ namespace Refactor.Model
             int usage = readings[i - 1].Amount() - readings[i - 2].Amount();
             DateTime end = readings[i - 1].Date();
             DateTime start = readings[i - 2].Date();
-            start.SetDate(start.GetDate() + 1); //set to begining of period
+            start = start.SetDate(start.GetDate() + 1); //set to begining of period
             return Charge(usage, start, end);
         }
 

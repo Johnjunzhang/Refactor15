@@ -6,17 +6,17 @@ namespace Refactor.Utils
     {
         public static bool Before(this DateTime datetime, DateTime target)
         {
-            throw new NotImplementedException();
+            return datetime.CompareTo(target) < 0;
         }
 
         public static bool After(this DateTime datetime, DateTime target)
         {
-            throw new NotImplementedException();
+            return datetime.CompareTo(target) > 0;
         }
 
-        public static void SetDate(this DateTime datetime, int date)
+        public static DateTime SetDate(this DateTime datetime, int date)
         {
-            throw new NotImplementedException();
+            return new DateTime(datetime.Year, datetime.Month, date);
         }
 
         public static int GetDate(this DateTime datetime)

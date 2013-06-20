@@ -1,6 +1,3 @@
-using System;
-using System.Globalization;
-
 namespace Refactor.Utils
 {
     public class Dollars
@@ -12,9 +9,9 @@ namespace Refactor.Utils
             Amount = d;
         }
 
-        public Dollars(Dollars times)
+        public Dollars(Dollars dollars)
         {
-            Amount = times.Amount;
+            Amount = dollars.Amount;
         }
 
         public Dollars Plus(Dollars dollars)
@@ -56,8 +53,7 @@ namespace Refactor.Utils
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((Dollars) obj);
+            return obj.GetType() == GetType() && Equals((Dollars) obj);
         }
 
         public override int GetHashCode()

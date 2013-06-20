@@ -52,6 +52,7 @@
     <Compile Include="src\Utils\DateTimeExten.cs" />
     <Compile Include="src\Utils\Dollars.cs" />
     <Compile Include="src\Zone.cs" />
+    <Compile Include="test\DateTimeFacts.cs" />
     <Compile Include="test\LifelineFacts.cs" />
   </ItemGroup>
   <ItemGroup>
