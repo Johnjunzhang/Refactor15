@@ -44,14 +44,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\Common\Zone.cs" />
+    <Compile Include="src\Model\Base\BaseSite.cs" />
+    <Compile Include="src\Model\Base\ChargeByUsageSite.cs" />
+    <Compile Include="src\Model\Base\ChargeByUsageAndStartEndSite.cs" />
     <Compile Include="src\Model\BusinessSite.cs" />
     <Compile Include="src\Model\DisabilitySite.cs" />
     <Compile Include="src\Model\LifelineSite.cs" />
-    <Compile Include="src\Model\ResidentialSite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Common\DateTimeExten.cs" />
     <Compile Include="src\Common\Dollars.cs" />
     <Compile Include="src\Common\Reading.cs" />
+    <Compile Include="src\Model\ResidentialSite.cs" />
     <Compile Include="test\BusinessFacts.cs" />
     <Compile Include="test\ResidentialFacts.cs" />
     <Compile Include="test\DisabilityFacts.cs" />

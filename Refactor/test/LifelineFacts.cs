@@ -85,12 +85,5 @@ namespace Refactor.test
             subject.AddReading(new Reading(int.MaxValue, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(1.9730005337E8), subject.Charge());
         }
-
-        [Fact]
-        public void TesttNoReadings()
-        {
-            SetUp();
-            Assert.Throws<NullReferenceException>(() => subject.Charge());
-        }
     }
 }

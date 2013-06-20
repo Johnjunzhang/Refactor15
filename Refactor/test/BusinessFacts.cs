@@ -7,11 +7,11 @@ namespace Refactor.test
 {
     public class BusinessFacts
     {
-        private BusinessSite subject;
+        private Business subject;
 
         public void SetUp()
         {
-            subject = new BusinessSite();
+            subject = new Business();
         }
 
         [Fact]
@@ -84,13 +84,6 @@ namespace Refactor.test
             subject.AddReading(new Reading(0, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(int.MaxValue, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(1.5220290473E8), subject.Charge());
-        }
-
-        [Fact]
-        public void TesttNoReadings()
-        {
-            SetUp();
-            Assert.Throws<NullReferenceException>(() => subject.Charge());
         }
     }
 }

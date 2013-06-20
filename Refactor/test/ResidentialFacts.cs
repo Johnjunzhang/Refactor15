@@ -7,12 +7,12 @@ namespace Refactor.test
 {
     public class ResidentialFacts
     {
-        private ResidentialSite subject;
+        private Residential subject;
 
         public void SetUp()
         {
             var zone = new Zone("B", 0.07, 0.06, new DateTime(1997, 6, 5), new DateTime(1997, 8, 31));
-            subject = new ResidentialSite(zone);
+            subject = new Residential(zone);
         }
 
         [Fact]
@@ -85,13 +85,6 @@ namespace Refactor.test
             subject.AddReading(new Reading(0, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(int.MaxValue, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(1.9730006007E8), subject.Charge());
-        }
-
-        [Fact]
-        public void TesttNoReadings()
-        {
-            SetUp();
-            Assert.Throws<IndexOutOfRangeException>(() => subject.Charge());
         }
     }
 }
