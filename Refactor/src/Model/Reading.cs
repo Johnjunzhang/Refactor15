@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace Refactor
+namespace Refactor.Model
 {
     public class Reading
     {

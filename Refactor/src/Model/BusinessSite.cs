@@ -1,6 +1,7 @@
-﻿using System;
+using System;
+using Refactor.Utils;
 
-namespace Refactor
+namespace Refactor.Model
 {
     public class BusinessSite
     {

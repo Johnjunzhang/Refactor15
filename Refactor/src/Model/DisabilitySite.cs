@@ -1,31 +1,28 @@
-﻿using System;
+using System;
+using Refactor.Utils;
 
-namespace Refactor
+namespace Refactor.Model
 {
-    public class ResidentialSite
+    public class DisabilitySite
     {
-        private Zone zone;
         private Reading[] readings = new Reading[1000];
+        private static readonly Dollars FUEL_TAX_CAP = new Dollars(0.10);
         private static readonly double TAX_RATE = 0.05;
+        private Zone zone;
+        private static readonly int CAP = 200;
 
-        public ResidentialSite(Zone zone)
-        {
-            this.zone = zone;
-        }
 
         public void AddReading(Reading newReading)
         {
-            // add reading to end of array
-            int i = 0;
-            while (readings[i] != null) i++;
+            int i;
+            for (i = 0; readings[i] != null; i++) ;
             readings[i] = newReading;
         }
 
         public Dollars Charge()
         {
-            // find last reading
-            int i = 0;
-            while (readings[i] != null) i++;
+            int i;
+            for (i = 0; readings[i] != null; i++) ;
             int usage = readings[i - 1].Amount() - readings[i - 2].Amount();
             DateTime end = readings[i - 1].Date();
             DateTime start = readings[i - 2].Date();
@@ -33,20 +30,18 @@ namespace Refactor
             return Charge(usage, start, end);
         }
 
-        private Dollars Charge(int usage, DateTime start, DateTime end)
+        private Dollars Charge(int fullUsage, DateTime start, DateTime end)
         {
             Dollars result;
             double summerFraction;
-            // Find out how much of period is in the summer
+            int usage = Math.Min(fullUsage, CAP);
             if (start.After(zone.SummerEnd()) || end.Before(zone.SummerStart()))
                 summerFraction = 0;
-            else if (!start.Before(zone.SummerStart()) && !start.After(zone.SummerEnd()) && !end.Before(zone.SummerStart()) && !end.After(zone.SummerEnd()))
-            {
+            else if (!start.Before(zone.SummerStart()) && !start.After(zone.SummerEnd()) &&
+                !end.Before(zone.SummerStart()) && !end.After(zone.SummerEnd()))
                 summerFraction = 1;
-            }
             else
             {
-                // part in summer part in winter
                 double summerDays;
                 if (start.Before(zone.SummerStart()) || start.After(zone.SummerEnd()))
                 {
@@ -61,11 +56,14 @@ namespace Refactor
                 ;
                 summerFraction = summerDays/(DayOfYear(end) - DayOfYear(start) + 1);
             }
-            result = new Dollars((usage*zone.SummerRate()*summerFraction) + (usage*zone.WinterRate()*(1 - summerFraction)));
+            ;
+            result = new Dollars((usage*zone.SummerRate()*summerFraction) +
+                (usage*zone.WinterRate()*(1 - summerFraction)));
+            result = result.Plus(new Dollars(Math.Max(fullUsage - usage, 0)*0.062));
             result = result.Plus(new Dollars(result.Times(TAX_RATE)));
-            Dollars fuel = new Dollars(usage*0.0175);
+            Dollars fuel = new Dollars(fullUsage*0.0175);
             result = result.Plus(fuel);
-            result = new Dollars(result.Plus(fuel.Times(TAX_RATE)));
+            result = new Dollars(result.Plus(fuel.Times(TAX_RATE).Min(FUEL_TAX_CAP)));
             return result;
         }
 

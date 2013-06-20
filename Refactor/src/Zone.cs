@@ -24,7 +24,7 @@ namespace Refactor
             return winterRate;
         }
 
-        public Zone(double WinterRate, double SummerRate, DateTime SummerStart, DateTime SummerEnd)
+        public Zone(string rate, double WinterRate, double SummerRate, DateTime SummerStart, DateTime SummerEnd)
         {
             this.winterRate = WinterRate;
             this.summerRate = SummerRate;

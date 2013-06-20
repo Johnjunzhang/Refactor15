@@ -43,19 +43,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessSite.cs" />
-    <Compile Include="DateTimeExten.cs" />
-    <Compile Include="DisabilitySite.cs" />
-    <Compile Include="Dollars.cs" />
-    <Compile Include="LifelineSite.cs" />
-    <Compile Include="Reading.cs" />
-    <Compile Include="ResidentialSite.cs" />
+    <Compile Include="src\Model\BusinessSite.cs" />
+    <Compile Include="src\Model\DisabilitySite.cs" />
+    <Compile Include="src\Model\LifelineSite.cs" />
+    <Compile Include="src\Model\Reading.cs" />
+    <Compile Include="src\Model\ResidentialSite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Zone.cs" />
+    <Compile Include="src\Utils\DateTimeExten.cs" />
+    <Compile Include="src\Utils\Dollars.cs" />
+    <Compile Include="src\Zone.cs" />
+    <Compile Include="test\LifelineFacts.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="src\packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
