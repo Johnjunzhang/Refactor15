@@ -10,21 +10,23 @@ namespace Refactor.Model
 
         protected override Dollars Charge(int usage)
         {
-            var base1 = Math.Min(usage, 100)*0.03;
+            var baseCount = GetBaseCount(usage);
+            var fuel = new Dollars(usage*0.0175);
+            return new Dollars(baseCount).Plus(new Dollars(new Dollars(baseCount).Minus(new Dollars(8)).Max(new Dollars(0)).Times(TAX_RATE))).Plus(fuel).Plus(new Dollars(fuel.Times(TAX_RATE)));
+        }
+
+        private double GetBaseCount(int usage)
+        {
+            var baseCount = Math.Min(usage, 100)*0.03;
             if (usage > 100)
             {
-                base1 += (Math.Min(usage, 200) - 100)*0.05;
+                baseCount += (Math.Min(usage, 200) - 100)*0.05;
             }
             if (usage > 200)
             {
-                base1 += (usage - 200)*0.07;
+                baseCount += (usage - 200)*0.07;
             }
-            var result = new Dollars(base1);
-            var tax = new Dollars(result.Minus(new Dollars(8)).Max(new Dollars(0)).Times(TAX_RATE));
-            result = result.Plus(tax);
-            var fuelCharge = new Dollars(usage*0.0175);
-            result = result.Plus(fuelCharge);
-            return result.Plus(new Dollars(fuelCharge.Times(TAX_RATE)));
+            return baseCount;
         }
     }
 }
