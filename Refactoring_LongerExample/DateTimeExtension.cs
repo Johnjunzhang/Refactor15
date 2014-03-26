@@ -2,7 +2,7 @@ using System;
 
 namespace Refactoring_LongerExample
 {
-    public static class DateTimeExten
+    public static class DateTimeExtension
     {
         public static bool Before(this DateTime datetime, DateTime target)
         {

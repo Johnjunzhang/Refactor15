@@ -49,7 +49,7 @@
     <Compile Include="LifelineSite.cs" />
     <Compile Include="ResidentialSite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DateTimeExten.cs" />
+    <Compile Include="DateTimeExtension.cs" />
     <Compile Include="Dollars.cs" />
     <Compile Include="Reading.cs" />
   </ItemGroup>
