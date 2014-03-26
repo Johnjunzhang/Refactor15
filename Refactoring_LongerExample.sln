@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring_LongerExample", "Refactor\Refactoring_LongerExample.csproj", "{831D93D7-7957-41A5-80F8-432D7920E573}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring_LongerExampleFacts", "Refactoring_LongerExampleFacts\Refactoring_LongerExampleFacts.csproj", "{CC53E9AA-7465-45D4-BA5A-F94157754C04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring_LongerExample", "Refactoring_LongerExample\Refactoring_LongerExample.csproj", "{831D93D7-7957-41A5-80F8-432D7920E573}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +11,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{831D93D7-7957-41A5-80F8-432D7920E573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{831D93D7-7957-41A5-80F8-432D7920E573}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{831D93D7-7957-41A5-80F8-432D7920E573}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{831D93D7-7957-41A5-80F8-432D7920E573}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CC53E9AA-7465-45D4-BA5A-F94157754C04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CC53E9AA-7465-45D4-BA5A-F94157754C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC53E9AA-7465-45D4-BA5A-F94157754C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC53E9AA-7465-45D4-BA5A-F94157754C04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{831D93D7-7957-41A5-80F8-432D7920E573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831D93D7-7957-41A5-80F8-432D7920E573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831D93D7-7957-41A5-80F8-432D7920E573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831D93D7-7957-41A5-80F8-432D7920E573}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

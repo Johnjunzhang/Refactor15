@@ -53,7 +53,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Refactor\Refactoring_LongerExample.csproj">
+    <ProjectReference Include="..\Refactoring_LongerExample\Refactoring_LongerExample.csproj">
       <Project>{831D93D7-7957-41A5-80F8-432D7920E573}</Project>
       <Name>Refactoring_LongerExample</Name>
     </ProjectReference>
