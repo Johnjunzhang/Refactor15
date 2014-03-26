@@ -1,17 +1,17 @@
 using System;
 
-namespace Refactor.Common
+namespace Refactoring_LongerExample
 {
     public class Reading
     {
-        public int Amount()
-        {
-            return amount;
-        }
-
         public DateTime Date()
         {
             return date;
+        }
+
+        public int Amount()
+        {
+            return amount;
         }
 
         public Reading(int amount, DateTime date)

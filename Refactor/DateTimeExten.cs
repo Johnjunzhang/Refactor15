@@ -1,6 +1,6 @@
 using System;
 
-namespace Refactor.Common
+namespace Refactoring_LongerExample
 {
     public static class DateTimeExten
     {

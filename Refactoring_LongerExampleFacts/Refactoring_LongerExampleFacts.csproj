@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{831D93D7-7957-41A5-80F8-432D7920E573}</ProjectGuid>
+    <ProjectGuid>{CC53E9AA-7465-45D4-BA5A-F94157754C04}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refactor</RootNamespace>
-    <AssemblyName>Refactor</AssemblyName>
+    <RootNamespace>Refactoring_LongerExampleFacts</RootNamespace>
+    <AssemblyName>Refactoring_LongerExampleFacts</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,29 +39,25 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="xunit">
-      <HintPath>..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
+      <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\Common\Zone.cs" />
-    <Compile Include="src\Model\BusinessSite.cs" />
-    <Compile Include="src\Model\DisabilitySite.cs" />
-    <Compile Include="src\Model\LifelineSite.cs" />
-    <Compile Include="src\Model\ResidentialSite.cs" />
+    <Compile Include="BusinessFacts.cs" />
+    <Compile Include="DisabilityFacts.cs" />
+    <Compile Include="LifelineFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Common\DateTimeExten.cs" />
-    <Compile Include="src\Common\Dollars.cs" />
-    <Compile Include="src\Common\Reading.cs" />
-    <Compile Include="test\BusinessFacts.cs" />
-    <Compile Include="test\ResidentialFacts.cs" />
-    <Compile Include="test\DisabilityFacts.cs" />
-    <Compile Include="test\DateTimeFacts.cs" />
-    <Compile Include="test\LifelineFacts.cs" />
+    <Compile Include="ResidentialFacts.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\packages.config" />
+    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Refactor\Refactoring_LongerExample.csproj">
+      <Project>{831D93D7-7957-41A5-80F8-432D7920E573}</Project>
+      <Name>Refactoring_LongerExample</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

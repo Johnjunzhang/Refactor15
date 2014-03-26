@@ -1,95 +1,87 @@
 ﻿using System;
-using Refactor.Common;
-using Refactor.Model;
+using Refactoring_LongerExample;
 using Xunit;
 
-namespace Refactor.test
+namespace Refactoring_LongerExampleFacts
 {
-    public class LifelineFacts
+    public class BusinessFacts
     {
-        private LifelineSite subject;
-
-        public void SetUp()
-        {
-            subject = new LifelineSite();
-        }
-
         [Fact]
-        public void TestZero()
+        public void should_not_charge_given_reading_amount_not_changed()
         {
-            SetUp();
+            var subject = new BusinessSite();
             subject.AddReading(new Reading(10, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(10, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(0), subject.Charge());
         }
 
         [Fact]
-        public void Test100()
+        public void should_charge_7_26_given_reading_amount_increase_100()
         {
-            SetUp();
+            var subject = new BusinessSite();
             subject.AddReading(new Reading(10, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(110, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(4.84), subject.Charge());
+            Assert.Equal(new Dollars(7.26), subject.Charge());
         }
 
         [Fact]
-        public void Test99()
+        public void should_charge_7_19_given_reading_amount_increase_99()
         {
-            SetUp();
+            var subject = new BusinessSite();
             subject.AddReading(new Reading(100, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(199, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(4.79), subject.Charge());
+            Assert.Equal(new Dollars(7.19), subject.Charge());
         }
 
         [Fact]
-        public void Test101()
+        public void should_charge_7_33_given_reading_amount_increase_101()
         {
-            SetUp();
+            var subject = new BusinessSite();
             subject.AddReading(new Reading(1000, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(1101, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(4.91), subject.Charge());
+            Assert.Equal(new Dollars(7.33), subject.Charge());
         }
 
         [Fact]
-        public void Test199()
+        public void should_charge_14_41_given_reading_amount_increase_101()
         {
-            SetUp();
+            var subject = new BusinessSite();
             subject.AddReading(new Reading(10000, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(10199, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(11.61), subject.Charge());
+            Assert.Equal(new Dollars(14.41), subject.Charge());
         }
 
         [Fact]
-        public void Test200()
+        public void should_charge_14_48_given_reading_amount_increase_200()
         {
-            SetUp();
+            var subject = new BusinessSite();
             subject.AddReading(new Reading(0, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(200, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(11.68), subject.Charge());
+            Assert.Equal(new Dollars(14.48), subject.Charge());
         }
 
         [Fact]
-        public void Test201()
+        public void should_charge_14_5_given_reading_amount_increase_201()
         {
-            SetUp();
+            var subject = new BusinessSite();
             subject.AddReading(new Reading(50, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(251, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(11.77), subject.Charge());
+            Assert.Equal(new Dollars(14.55), subject.Charge());
         }
 
         [Fact]
-        public void TestMax()
+        public void should_charge_given_reading_amount_max_increaseds()
         {
-            SetUp();
+            var subject = new BusinessSite();
             subject.AddReading(new Reading(0, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(int.MaxValue, new DateTime(1997, 2, 1)));
-            Assert.Equal(new Dollars(1.9730005337E8), subject.Charge());
+            Assert.Equal(new Dollars(1.5220290473E8), subject.Charge());
         }
 
         [Fact]
-        public void TesttNoReadings()
+        public void should_throw_exception_given_no_reading()
         {
-            SetUp();
+            var subject = new BusinessSite();
             Assert.Throws<NullReferenceException>(() => subject.Charge());
         }
     }

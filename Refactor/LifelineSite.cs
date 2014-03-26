@@ -1,7 +1,6 @@
 using System;
-using Refactor.Common;
 
-namespace Refactor.Model
+namespace Refactoring_LongerExample
 {
     public class LifelineSite
     {
@@ -33,9 +32,11 @@ namespace Refactor.Model
             {
                 base1 += (usage - 200)*0.07;
             }
+
             Dollars result = new Dollars(base1);
             Dollars tax = new Dollars(result.Minus(new Dollars(8)).Max(new Dollars(0)).Times(TAX_RATE));
             result = result.Plus(tax);
+
             Dollars fuelCharge = new Dollars(usage*0.0175);
             result = result.Plus(fuelCharge);
             return result.Plus(new Dollars(fuelCharge.Times(TAX_RATE)));

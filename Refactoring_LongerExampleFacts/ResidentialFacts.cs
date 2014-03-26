@@ -1,97 +1,94 @@
 ﻿using System;
-using Refactor.Common;
-using Refactor.Model;
+using Refactoring_LongerExample;
 using Xunit;
 
-namespace Refactor.test
+namespace Refactoring_LongerExampleFacts
 {
     public class ResidentialFacts
     {
-        private ResidentialSite subject;
-
-        public void SetUp()
-        {
-            var zone = new Zone("B", 0.07, 0.06, new DateTime(1997, 6, 5), new DateTime(1997, 8, 31));
-            subject = new ResidentialSite(zone);
-        }
-
         [Fact]
-        public void TestZero()
+        public void should_not_charge_given_reading_amount_not_changed()
         {
-            SetUp();
+            var subject = CreateResidentialSite();
             subject.AddReading(new Reading(10, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(10, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(0), subject.Charge());
         }
 
         [Fact]
-        public void Test100()
+        public void should_charge_9_19_given_reading_amount_increase_100()
         {
-            SetUp();
+            var subject = CreateResidentialSite();
             subject.AddReading(new Reading(10, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(110, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(9.19), subject.Charge());
         }
 
         [Fact]
-        public void Test99()
+        public void should_charge_9_10_given_reading_amount_increase_99()
         {
-            SetUp();
+            var subject = CreateResidentialSite();
             subject.AddReading(new Reading(100, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(199, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(9.10), subject.Charge());
         }
 
         [Fact]
-        public void Test101()
+        public void should_charge_9_28_given_reading_amount_increase_101()
         {
-            SetUp();
+            var subject = CreateResidentialSite();
             subject.AddReading(new Reading(1000, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(1101, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(9.28), subject.Charge());
         }
 
         [Fact]
-        public void Test199()
+        public void should_charge_18_28_given_reading_amount_increase_199()
         {
-            SetUp();
+            var subject = CreateResidentialSite();
             subject.AddReading(new Reading(10000, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(10199, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(18.28), subject.Charge());
         }
 
         [Fact]
-        public void Test200()
+        public void should_charge_18_38_given_reading_amount_increase_200()
         {
-            SetUp();
+            var subject = CreateResidentialSite();
             subject.AddReading(new Reading(0, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(200, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(18.38), subject.Charge());
         }
 
         [Fact]
-        public void Test201()
+        public void should_charge_18_47_given_reading_amount_increase_201()
         {
-            SetUp();
+            var subject = CreateResidentialSite();
             subject.AddReading(new Reading(50, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(251, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(18.47), subject.Charge());
         }
 
         [Fact]
-        public void TestMax()
+        public void should_charge_given_reading_amount_max_increaseds()
         {
-            SetUp();
+            var subject = CreateResidentialSite();
             subject.AddReading(new Reading(0, new DateTime(1997, 1, 1)));
             subject.AddReading(new Reading(int.MaxValue, new DateTime(1997, 2, 1)));
             Assert.Equal(new Dollars(1.9730006007E8), subject.Charge());
         }
 
         [Fact]
-        public void TesttNoReadings()
+        public void should_throw_exception_given_no_reading()
         {
-            SetUp();
+            var subject = CreateResidentialSite();
             Assert.Throws<IndexOutOfRangeException>(() => subject.Charge());
+        }
+
+        public ResidentialSite CreateResidentialSite()
+        {
+            var zone = new Zone("B", 0.07, 0.06, new DateTime(1997, 6, 5), new DateTime(1997, 8, 31));
+            return new ResidentialSite(zone);
         }
     }
 }
